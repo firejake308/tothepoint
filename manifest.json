@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "To the Point",
+    "version": "1",
+    "content_scripts": [{
+        "matches": ["*://*.uptodate.com/*"],
+        "js": ["index.js"]
+    }],
+    "web_accessible_resources": [
+        {
+            "resources": ["tfjs.js", "qna.js", "atq.js"],
+            "matches": ["*://*.uptodate.com/*"]
+        }
+    ]
+}
