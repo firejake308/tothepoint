@@ -8,7 +8,7 @@
     }],
     "web_accessible_resources": [
         {
-            "resources": ["tfjs.js", "qna.js", "atq.js"],
+            "resources": ["tf2.min.js", "qna.js", "atq.js", "biobert_js/*"],
             "matches": ["*://*.uptodate.com/*"]
         }
     ]

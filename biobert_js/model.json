@@ -4,8 +4,8 @@
     "convertedBy": "TensorFlow.js Converter v4.2.0",
     "signature": {
         "inputs": {
-            "token_type_ids:0": {
-                "name": "token_type_ids:0",
+            "segment_ids:0": {
+                "name": "segment_ids:0",
                 "dtype": "DT_INT32",
                 "tensorShape": {
                     "dim": [
@@ -18,8 +18,8 @@
                     ]
                 }
             },
-            "attention_mask:0": {
-                "name": "attention_mask:0",
+            "input_mask:0": {
+                "name": "input_mask:0",
                 "dtype": "DT_INT32",
                 "tensorShape": {
                     "dim": [
@@ -46,34 +46,6 @@
                     ]
                 }
             },
-            "segment_ids:0": {
-                "name": "segment_ids:0",
-                "dtype": "DT_INT32",
-                "tensorShape": {
-                    "dim": [
-                        {
-                            "size": "1"
-                        },
-                        {
-                            "size": "-1"
-                        }
-                    ]
-                }
-            },
-            "input_mask:0": {
-                "name": "input_mask:0",
-                "dtype": "DT_INT32",
-                "tensorShape": {
-                    "dim": [
-                        {
-                            "size": "1"
-                        },
-                        {
-                            "size": "-1"
-                        }
-                    ]
-                }
-            },
             "global_step:0": {
                 "name": "global_step:0",
                 "dtype": "DT_INT32",
@@ -81,8 +53,8 @@
             }
         },
         "outputs": {
-            "Identity_1:0": {
-                "name": "Identity_1:0",
+            "start_logits:0": {
+                "name": "start_logits:0",
                 "dtype": "DT_FLOAT",
                 "tensorShape": {
                     "dim": [
@@ -95,8 +67,8 @@
                     ]
                 }
             },
-            "Identity:0": {
-                "name": "Identity:0",
+            "end_logits:0": {
+                "name": "end_logits:0",
                 "dtype": "DT_FLOAT",
                 "tensorShape": {
                     "dim": [
@@ -21894,7 +21866,7 @@
                 }
             },
             {
-                "name": "attention_mask",
+                "name": "input_mask",
                 "op": "Placeholder",
                 "attr": {
                     "dtype": {
@@ -21946,7 +21918,7 @@
                         "shape": {
                             "dim": [
                                 {
-                                    "size": "1"
+                                    "size": "-1"
                                 },
                                 {
                                     "size": "-1"
@@ -21967,7 +21939,7 @@
                         "shape": {
                             "dim": [
                                 {
-                                    "size": "1"
+                                    "size": "-1"
                                 },
                                 {
                                     "size": "-1"
@@ -21990,7 +21962,7 @@
                 }
             },
             {
-                "name": "token_type_ids",
+                "name": "segment_ids",
                 "op": "Placeholder",
                 "attr": {
                     "shape": {
@@ -22014,7 +21986,7 @@
                 "name": "tf_bert_for_question_answering_1/bert/Shape_1",
                 "op": "Shape",
                 "input": [
-                    "attention_mask"
+                    "input_mask"
                 ],
                 "attr": {
                     "T": {
@@ -22056,7 +22028,7 @@
                 "op": "GatherV2",
                 "input": [
                     "tf_bert_for_question_answering_1/bert/embeddings/Gather_2/resource",
-                    "token_type_ids",
+                    "segment_ids",
                     "tf_bert_for_question_answering_1/bert/embeddings/Gather_2/axis"
                 ],
                 "attr": {
@@ -22216,7 +22188,7 @@
                 "name": "tf_bert_for_question_answering_1/bert/Reshape",
                 "op": "Reshape",
                 "input": [
-                    "attention_mask",
+                    "input_mask",
                     "tf_bert_for_question_answering_1/bert/Reshape/shape"
                 ],
                 "attr": {
@@ -46300,7 +46272,7 @@
                 }
             },
             {
-                "name": "Identity_1",
+                "name": "start_logits",
                 "op": "Identity",
                 "input": [
                     "tf_bert_for_question_answering_1/Squeeze"
@@ -46312,7 +46284,7 @@
                 }
             },
             {
-                "name": "Identity",
+                "name": "end_logits",
                 "op": "Identity",
                 "input": [
                     "tf_bert_for_question_answering_1/Squeeze_1"

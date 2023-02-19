@@ -1,19 +1,20 @@
 var model = null;
 
+const modelConfig = {modelUrl: 'chrome-extension://pccecepcgejljdlpldmhlohhikpfcele/biobert_js/model.json'}//chrome.runtime.getURL('./biobert/saved_model.pb')}
 const loadModelIvl = setInterval(tryLoadModel, 1000);
 async function tryLoadModel() {
     if (!qna)
         return;
     
     clearInterval(loadModelIvl);
-    model = await qna.load();
+    model = await qna.load(modelConfig);
 }
 
 async function answerTheQuestion() {
     console.log('answering the question')
     document.querySelector('#qna-answer-box').textContent = 'Loading model...';
     if (!model) {
-        model = await qna.load();
+        model = await qna.load(modelConfig);
         clearInterval(loadModelIvl);
     }
     document.querySelector('#qna-answer-box').textContent = 'Processing question...';

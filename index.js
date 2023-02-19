@@ -3,6 +3,9 @@ const nullthrows = (v) => {
     return v;
 }
 
+// I've hard-coded the local file URL's for now, but eventually this would need to be more dynamic
+console.log(chrome.runtime.getURL('./biobert/saved_model.pb'))
+
 function injectCode(src) {
     const script = document.createElement('script');
     // This is why it works!
